@@ -62,7 +62,5 @@ public class RpcServerBootstrap implements InitializingBean, ApplicationContextA
                     }
                 });
         serverBootstrap.bind(hostName, port).sync();
-
-
     }
 }

@@ -33,7 +33,7 @@ public class RpcConsumer {
     private static UserClientHandler userClientHandler;
 
     //1.创建一个代理对象 providerName：UserService#sayHello are you ok?
-    public Object createProxy(final Class<?> serviceClass,final String providerName){
+    public Object createProxy(final Class<?> serviceClass){
         //借助JDK动态代理生成代理对象
         return  Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class<?>[]{serviceClass}, new InvocationHandler() {
             @Override
@@ -47,14 +47,8 @@ public class RpcConsumer {
                 rpcRequest.setMethodName(method.getName());
                 rpcRequest.setRequestId(UUID.randomUUID().toString());
                 rpcRequest.setParameters(args);
-                Class<?>[] parameterTypes = new Class[]{};
-                if (null != args || args.length != 0) {
-                    parameterTypes = new Class[args.length];
-                    for (int i = 0; i < args.length; i++) {
-                        parameterTypes[i] = args[i].getClass();
-                    }
-                }
-                rpcRequest.setParameterTypes(parameterTypes);
+                rpcRequest.setParameterTypes(method.getParameterTypes());
+
                 userClientHandler.setPara(JSON.parse(JSON.toJSONString(rpcRequest)));
                 // 去服务端请求数据
                 return executor.submit(userClientHandler).get();

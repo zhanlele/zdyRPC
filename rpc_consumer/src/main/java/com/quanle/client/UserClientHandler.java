@@ -1,5 +1,7 @@
 package com.quanle.client;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.concurrent.Callable;
 
 import io.netty.channel.ChannelHandlerContext;
@@ -27,7 +29,7 @@ public class UserClientHandler extends ChannelInboundHandlerAdapter implements C
 
     @Override
     public synchronized void channelRead(ChannelHandlerContext ctx, Object msg) {
-        result = msg.toString();
+        result = JSON.toJSONString(msg);
         notify();
     }
 

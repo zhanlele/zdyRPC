@@ -17,7 +17,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 public class UserServerHandler extends ChannelInboundHandlerAdapter {
 
 
-    private ApplicationContext applicationContext;
+    private final ApplicationContext applicationContext;
 
     public UserServerHandler(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
