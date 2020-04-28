@@ -1,4 +1,4 @@
-package com.quanle;
+package com.quanle.body;
 
 /**
  * @author quanle

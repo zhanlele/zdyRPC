@@ -1,4 +1,4 @@
-package com.quanle;
+package com.quanle.coder;
 
 import com.quanle.seriail.Serializer;
 
@@ -19,7 +19,6 @@ public class RpcDecoder extends ByteToMessageDecoder {
     private Serializer serializer;
 
 
-
     public RpcDecoder(Class<?> clazz, Serializer serializer) {
 
         this.clazz = clazz;
@@ -31,7 +30,7 @@ public class RpcDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(
             ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-        int length = byteBuf.getInt(0);
+        int length = byteBuf.readableBytes();
         byte[] content = new byte[length];
         byteBuf.getBytes(4, content, 0, length);
         Object o = serializer.deserialize(clazz, content);

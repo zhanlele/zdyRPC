@@ -1,4 +1,4 @@
-package com.quanle;
+package com.quanle.coder;
 
 import com.quanle.seriail.Serializer;
 
