@@ -15,7 +15,8 @@ public class RpcClientBootStrap {
         while (true) {
             System.out.println("============>>>>>");
             Thread.sleep(2000);
-            System.out.println(proxy.sayHello("are you ok?"));
+            proxy.sayHello("are you ok?");
+            System.out.println("已响应");
         }
     }
 }

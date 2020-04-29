@@ -33,9 +33,7 @@ public class RpcEncoder extends MessageToByteEncoder {
         if (clazz != null && clazz.isInstance(msg)) {
 
             byte[] bytes = serializer.serialize(msg);
-
             byteBuf.writeInt(bytes.length);
-
             byteBuf.writeBytes(bytes);
 
         }
