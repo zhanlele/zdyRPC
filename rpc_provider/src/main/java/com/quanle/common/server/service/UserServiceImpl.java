@@ -1,10 +1,10 @@
-package com.quanle.server.service;
+package com.quanle.common.server.service;
 
-import com.quanle.body.RpcRequest;
-import com.quanle.coder.RpcDecoder;
-import com.quanle.seriail.impl.JSONSerializer;
-import com.quanle.server.handler.UserServerHandler;
-import com.quanle.service.UserService;
+import com.quanle.common.body.RpcRequest;
+import com.quanle.common.coder.RpcDecoder;
+import com.quanle.common.seriail.impl.JSONSerializer;
+import com.quanle.common.server.handler.UserServerHandler;
+import com.quanle.common.service.UserService;
 
 import org.springframework.stereotype.Service;
 

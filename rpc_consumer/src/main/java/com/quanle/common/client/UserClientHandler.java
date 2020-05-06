@@ -1,4 +1,4 @@
-package com.quanle.client;
+package com.quanle.common.client;
 
 import com.alibaba.fastjson.JSON;
 

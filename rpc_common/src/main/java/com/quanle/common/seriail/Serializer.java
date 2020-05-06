@@ -1,4 +1,4 @@
-package com.quanle.seriail;
+package com.quanle.common.seriail;
 
 import java.io.IOException;
 

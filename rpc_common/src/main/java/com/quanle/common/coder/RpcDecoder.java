@@ -1,6 +1,6 @@
-package com.quanle.coder;
+package com.quanle.common.coder;
 
-import com.quanle.seriail.Serializer;
+import com.quanle.common.seriail.Serializer;
 
 import java.util.List;
 

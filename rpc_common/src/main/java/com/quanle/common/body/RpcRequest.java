@@ -1,4 +1,4 @@
-package com.quanle.body;
+package com.quanle.common.body;
 
 /**
  * 通信协议对象

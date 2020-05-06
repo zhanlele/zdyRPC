@@ -1,9 +1,9 @@
-package com.quanle.client;
+package com.quanle.common.client;
 
 import com.alibaba.fastjson.JSON;
-import com.quanle.body.RpcRequest;
-import com.quanle.coder.RpcEncoder;
-import com.quanle.seriail.impl.JSONSerializer;
+import com.quanle.common.body.RpcRequest;
+import com.quanle.common.coder.RpcEncoder;
+import com.quanle.common.seriail.impl.JSONSerializer;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

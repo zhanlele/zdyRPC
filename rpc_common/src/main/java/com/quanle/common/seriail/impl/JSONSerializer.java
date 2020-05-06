@@ -1,7 +1,7 @@
-package com.quanle.seriail.impl;
+package com.quanle.common.seriail.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.quanle.seriail.Serializer;
+import com.quanle.common.seriail.Serializer;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.quanle.service;
+package com.quanle.common.service;
 
 /**
  * @author quanle

@@ -1,6 +1,6 @@
-package com.quanle.server.handler;
+package com.quanle.common.server.handler;
 
-import com.quanle.body.RpcRequest;
+import com.quanle.common.body.RpcRequest;
 
 import org.springframework.beans.BeansException;
 import org.springframework.cglib.reflect.FastClass;

@@ -1,6 +1,6 @@
-package com.quanle.server;
+package com.quanle.common.server;
 
-import com.quanle.server.service.UserServiceImpl;
+import com.quanle.common.server.service.UserServiceImpl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

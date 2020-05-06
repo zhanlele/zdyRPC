@@ -1,6 +1,6 @@
-package com.quanle.client;
+package com.quanle.common.client;
 
-import com.quanle.service.UserService;
+import com.quanle.common.service.UserService;
 
 /**
  * @author quanle
