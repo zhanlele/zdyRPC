@@ -17,7 +17,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -36,12 +35,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String sayHello(String word) {
-        long time = ThreadLocalRandom.current().nextLong(1000, 3000);
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        long time = ThreadLocalRandom.current().nextLong(1000, 3000);
+//        try {
+//            Thread.sleep(time);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         System.out.println("调用成功--参数 " + word);
         return "调用成功--参数 " + word;
     }
