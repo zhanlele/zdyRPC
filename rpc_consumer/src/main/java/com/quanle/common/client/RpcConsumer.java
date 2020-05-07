@@ -92,7 +92,7 @@ public class RpcConsumer {
                     }
                 });
 
-        bootstrap.connect("127.0.0.1", 8991).sync();
+        bootstrap.connect("192.168.3.3", 8991).sync();
 
     }
 }

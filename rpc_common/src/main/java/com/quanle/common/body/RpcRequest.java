@@ -32,6 +32,15 @@ public class RpcRequest {
      * 入参
      */
     private Object[] parameters;
+    /**
+     * 注册地址
+     */
+    private String registryUrl;
+
+    /**
+     * 端口
+     */
+    private int port;
 
     public String getRequestId() {
         return requestId;
@@ -71,5 +80,21 @@ public class RpcRequest {
 
     public void setParameters(Object[] parameters) {
         this.parameters = parameters;
+    }
+
+    public String getRegistryUrl() {
+        return registryUrl;
+    }
+
+    public void setRegistryUrl(String registryUrl) {
+        this.registryUrl = registryUrl;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }
