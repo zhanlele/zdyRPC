@@ -3,6 +3,7 @@ package com.quanle.common.zkregister;
 import com.alibaba.fastjson.JSONArray;
 import com.quanle.common.config.ServiceConfig;
 import com.quanle.common.utils.ReflectionUtils;
+import com.quanle.common.utils.StringUtils;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -14,7 +15,9 @@ import org.apache.zookeeper.data.Stat;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author quanle
@@ -58,7 +61,13 @@ public class ZookeeperRegistry implements Registry {
         for (Method declaredMethod : declaredMethods) {
             //类名+方法名+参数确定接口的唯一标识
             String key = ReflectionUtils.buildKeyWithClassAndMethod(clazz, declaredMethod);
-            String path = PATH + "/" + key;
+            Integer port = registryInfo.getPort();
+            String ip = registryInfo.getIp();
+            Map<String, String> map = new LinkedHashMap<>();
+            map.put("ip",ip);
+            map.put("port",port.toString());
+            String hostKey = StringUtils.map2String(map);
+            String path = PATH + "/" + hostKey+"&"+key;
             Stat stat = client.checkExists().forPath(path);
             List<RegistryInfo> registryInfos;
             if (null == stat) {

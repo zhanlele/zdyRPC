@@ -1,14 +1,14 @@
-package com.quanle.common.server.service;
+package com.quanle.server.service;
 
 import com.quanle.common.body.RpcRequest;
 import com.quanle.common.coder.RpcDecoder;
 import com.quanle.common.config.ServiceConfig;
 import com.quanle.common.seriail.impl.JSONSerializer;
-import com.quanle.common.server.handler.UserServerHandler;
 import com.quanle.common.service.UserService;
 import com.quanle.common.utils.ClassUtils;
 import com.quanle.common.zkregister.RegistryInfo;
 import com.quanle.common.zkregister.ZookeeperRegistry;
+import com.quanle.server.handler.UserServerHandler;
 
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,7 @@ import io.netty.handler.codec.string.StringEncoder;
  * @date 2020/4/28 10:19 PM
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserService2Impl implements UserService {
 
     @Override
     public String sayHello(String word) {

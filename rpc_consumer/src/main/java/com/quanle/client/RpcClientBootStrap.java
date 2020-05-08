@@ -1,4 +1,4 @@
-package com.quanle.common.client;
+package com.quanle.client;
 
 import com.quanle.common.RpcContext;
 import com.quanle.common.config.ReferenceConfig;

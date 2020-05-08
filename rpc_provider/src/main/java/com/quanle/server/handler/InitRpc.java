@@ -1,4 +1,4 @@
-package com.quanle.common.server.handler;
+package com.quanle.server.handler;
 
 /**
  * @author quanle

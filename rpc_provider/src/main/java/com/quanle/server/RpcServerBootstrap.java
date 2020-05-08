@@ -1,4 +1,4 @@
-package com.quanle.common.server;
+package com.quanle.server;
 
 import com.quanle.common.config.ServiceConfig;
 import com.quanle.common.utils.ClassUtils;
