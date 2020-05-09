@@ -64,10 +64,10 @@ public class ZookeeperRegistry implements Registry {
             Integer port = registryInfo.getPort();
             String ip = registryInfo.getIp();
             Map<String, String> map = new LinkedHashMap<>();
-            map.put("ip",ip);
-            map.put("port",port.toString());
+            map.put("ip", ip);
+            map.put("port", port.toString());
             String hostKey = StringUtils.map2String(map);
-            String path = PATH + "/" + hostKey+"&"+key;
+            String path = PATH + "/" + hostKey + "/" + key;
             Stat stat = client.checkExists().forPath(path);
             List<RegistryInfo> registryInfos;
             if (null == stat) {
@@ -105,7 +105,8 @@ public class ZookeeperRegistry implements Registry {
     }
 
     @Override
-    public void updateData(String registryUrl, Class<?> clazz, Method method, RegistryInfo registryInfo) throws Exception {
+    public void updateData(String registryUrl, Class<?> clazz, Method method, RegistryInfo registryInfo) throws
+            Exception {
         //类名+方法名+参数确定接口的唯一标识
         String key = ReflectionUtils.buildKeyWithClassAndMethod(clazz, method);
         String path = PATH + "/" + key;
@@ -146,7 +147,10 @@ public class ZookeeperRegistry implements Registry {
     }
 
     @Override
-    public void unregisterService(String registryUrl, List<ServiceConfig> serviceConfigs, RegistryInfo registryInfo) throws Exception {
+    public void unregisterService(
+            String registryUrl,
+            List<ServiceConfig> serviceConfigs,
+            RegistryInfo registryInfo) throws Exception {
         System.out.println("服务器关闭，剔除下线的服务端节点，节点ip：" + registryInfo.getIp() + ",节点端口：" + registryInfo.getPort());
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         client = CuratorFrameworkFactory.builder()

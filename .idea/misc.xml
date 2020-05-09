@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/rpc_common/pom.xml" />
         <option value="$PROJECT_DIR$/rpc_consumer/pom.xml" />
         <option value="$PROJECT_DIR$/rpc_provider/pom.xml" />
+        <option value="$PROJECT_DIR$/rpc_provider2/pom.xml" />
       </list>
     </option>
   </component>
