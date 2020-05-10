@@ -1,0 +1,6 @@
+server:
+  port: 8081
+rpc:
+  port: 8991
+zookeeper:
+  url: 192.168.3.3:2181

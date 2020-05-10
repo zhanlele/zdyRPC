@@ -72,10 +72,14 @@ public class ZookeeperRegistry implements Registry {
                 //接口被注册了,取出数据并将要注册的数据保存进去
                 byte[] bytes = client.getData().forPath(path);
                 String data = new String(bytes, StandardCharsets.UTF_8);
+                System.out.println("data=======>>>" + data);
                 registryInfos = JSONArray.parseArray(data, RegistryInfo.class);
                 if (!registryInfos.contains(registryInfo)) {
                     registryInfos.add(registryInfo);
                     client.setData().forPath(path, JSONArray.toJSONBytes(registryInfos));
+                    byte[] bytes1 = client.getData().forPath(path);
+                    String data1 = new String(bytes1, StandardCharsets.UTF_8);
+                    System.out.println("data1=======>>>" + data1);
                 }
             }
         }
