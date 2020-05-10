@@ -31,5 +31,8 @@ public class RpcClientBootStrap {
                 8991);
         UserService userService = (UserService) context.getService(UserService.class);
         System.out.println(userService.sayHello("are you ok?"));
+        System.out.println(userService.sayHello("are you ok?"));
+
+
     }
 }

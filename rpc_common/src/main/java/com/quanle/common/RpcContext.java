@@ -1,6 +1,7 @@
 package com.quanle.common;
 
-import com.quanle.common.balance.impl.LatestLoadBalance;
+import com.quanle.common.balance.LoadBalance;
+import com.quanle.common.balance.impl.RandomLoadBalance;
 import com.quanle.common.body.RpcRequest;
 import com.quanle.common.config.ReferenceConfig;
 import com.quanle.common.config.ServiceConfig;
@@ -114,7 +115,7 @@ public class RpcContext {
                         if (null == registryInfos || registryInfos.isEmpty()) {
                             throw new RuntimeException("没有服务提供者");
                         }
-                        LatestLoadBalance loadbalancer = new LatestLoadBalance();
+                        LoadBalance loadbalancer = new RandomLoadBalance();
                         RegistryInfo registryInfo = loadbalancer.choose(registryInfos);
                         NettyClientHandlerAdapter handlerAdapter = new NettyClientHandlerAdapter();
                         new NettyClient().connect(registryInfo.getIp(), registryInfo.getPort(), handlerAdapter);
