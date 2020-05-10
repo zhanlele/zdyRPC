@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="shortcut icon" th:href="@{/user/img/bloglogo.jpg}"/>
+    <link rel="apple-touch-icon" th:href="@{/user/img/apple-touch-icon.png}"/>
+    <title>配置页面</title>
+    <script th:src="@{/assets/js/jquery.min.js}"></script>
+    <!--[if lt IE 9]>
+    <script th:src="@{/back/js/html5shiv.js}"></script>
+    <script th:src="@{/back/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<table style="width: 800px;height: 300px">
+    <tr>
+        <td>数据库驱动</td>
+        <td>
+            <input type="text" th:value="${config.getDriverClassName()}" id="driverClassName" name="driverClassName"
+                   style="height:20px;width: 500px">
+        </td>
+    </tr>
+    <tr>
+        <td>数据库地址</td>
+        <td>
+            <input type="text" th:value="${config.getUrl()}" id="url" name="url" style="height:20px;width: 500px">
+        </td>
+    </tr>
+    <tr>
+        <td>用户名</td>
+        <td>
+            <input type="text" th:value="${config.getUserName()}" id="userName" name="userName"
+                   style="height:20px;width: 500px">
+        </td>
+    </tr>
+    <tr>
+        <td>密码</td>
+        <td>
+            <input type="text" th:value="${config.getPassWord()}" id="passWord" name="passWord"
+                   style="height:20px;width: 500px">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div style="text-align:center">
+                <button type="submit" value="修改" style="width: 80px;height: 30px" onclick="editConfig();">修改</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<script>
+    function editConfig() {
+        $.ajax({
+            type: 'post',
+            url: '/config/update',
+            data: {
+                driverClassName: $('#driverClassName').val(),
+                url: $('#url').val(),
+                userName: $('#userName').val(),
+                passWord: $('#passWord').val()
+            },
+            success: function (data) {
+                if (data.code === 0) {
+                    alert("修改成功")
+                    window.location.reload()
+                } else {
+                    alert(data.msg);
+                }
+            },
+        });
+    }
+</script>
